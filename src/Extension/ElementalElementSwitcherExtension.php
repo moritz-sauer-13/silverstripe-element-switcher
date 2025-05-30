@@ -12,16 +12,14 @@ class ElementalElementSwitcherExtension extends Extension {
 
     public function updateCMSActions(FieldList $actions) {
 
-        $rootTabSet = new TabSet('SwitchActionMenus');
-        $dropUpContainer = new Tab(
+        $rootTabSet = TabSet::create('SwitchActionMenus');
+        $dropUpContainer = Tab::create(
             'SwitchMoreOptions',
-            _t(__CLASS__ . '.SwitchMoreOptions', 'More options', 'Expands a view for more buttons')
+            _t(__CLASS__ . '.SwitchMoreOptions', 'Switch Element', 'Expands a view for more buttons')
         );
-        $dropUpContainer->addExtraClass('popover-actions-simulate');
+        //$dropUpContainer->addExtraClass('popover-actions-simulate');
         $rootTabSet->push($dropUpContainer);
-        $rootTabSet->addExtraClass('ss-ui-action-tabset action-menus noborder');
-
-        
+        $rootTabSet->addExtraClass('ss-ui-action-tabset action-menus btn-element-switcher btn-outline-primary');
 
         // get all siblings and create edit links
         $mySiblings = $this->owner->Parent()->Elements()->exclude([
@@ -35,12 +33,12 @@ class ElementalElementSwitcherExtension extends Extension {
                 $myLinkTitle = _t(__CLASS__ . '.NoTitle', 'No title') . ' ' . $sibling->ID;
             }
             
-            $myLinks .= '<a href="' . $sibling->CMSEditLink() . '" class="btn action delete btn btn-secondary">' . $myLinkTitle . '</a><br>';
+            $myLinks .= '<a href="' . $sibling->CMSEditLink() . '" class="btn">' . $myLinkTitle . '</a><br>';
         }
 
         $myAction = LiteralField::create(
             'doCustomAction',
-            '<div class="cms-sitetree-information">' ._t(__CLASS__ . '.PopupInfo', 'Swith to Element:'). '</div>'.
+            '<div class="cms-sitetree-information">' ._t(__CLASS__ . '.PopupInfo', 'Switch to Element:'). '</div>'.
             $myLinks
         );
 

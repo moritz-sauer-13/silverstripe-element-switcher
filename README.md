@@ -17,10 +17,7 @@ composer require kalakotra/silverstripe-element-switcher
 
 ## Configuration
 
-Add code to yaml configuration file:
-
-```yaml
-DNADesign\Elemental\Models\BaseElement:
-  extensions:
-    - Kalakotra\SilverstripeElementSwitcher\Extensions\ElementalElementSwitcherExtension
+After installation run:
+```sh
+sake dev/build
 ```
