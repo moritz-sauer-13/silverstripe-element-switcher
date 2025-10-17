@@ -1,3 +1,5 @@
+This is a fork of kalakotra/silverstripe-element-switcher to support Silverstripe 6.
+
 # Extension Module to Elemental Elements
 
 This module provides simplified navigation between elemental elements.
